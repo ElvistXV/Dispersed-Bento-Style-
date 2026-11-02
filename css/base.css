@@ -1,0 +1,95 @@
+/* =====================================================
+   base.css  Design tokens, reset, typography, page shell
+   ===================================================== */
+
+/* ----- Design tokens (colors sampled from the Figma prototype) ----- */
+:root {
+  --bg: #efe9df;
+  --card: #fff;
+  --ink: #000;
+  --mute: #73706a;
+  --line: #dfdfdf;
+  --or: #ff8a5b;
+  --peach: #efd3b2;
+  --mint: #c3dfd3;
+  --sand: #d7d0e0;
+  --rose: #eaccc4;
+  --lav: #d7d0e0;
+  --teal: #11bdb1;
+  --tealL: #94e1dc;
+  --tealXL: #dff4f1;
+  --amb: #f0963a;
+  --ind: #555a82;
+  --dk: #000;
+  --dkt: #fff;
+  --bar: #e6dfd5;
+}
+
+/* Safe-area padding for phones with notches */
+:root {
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* ----- Reset ----- */
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* ----- Page shell ----- */
+.app {
+  max-width: none;
+  margin: 0 auto;
+  padding: 10px clamp(18px, 2.1vw, 38px) 24px;
+}
+
+/* ----- Typography ----- */
+h1 {
+  font-size: 34px;
+  line-height: 1.1;
+  margin: 16px 0 4px;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+}
+.sub {
+  color: var(--mute);
+  margin: 0 0 18px;
+}
+h3 {
+  margin: 0 0 2px;
+  font-size: 16px;
+}
+.mute {
+  color: var(--mute);
+  font-size: 12px;
+}
+
+/* ----- Keyboard focus ----- */
+nav button:focus-visible,
+.btn:focus-visible,
+.chip:focus-visible,
+.cat:focus-visible {
+  outline: 2px solid var(--or);
+  outline-offset: 2px;
+}
+
+/* Short dashboard screens need less breathing room below the last card.
+   Other routes keep the standard 24px app bottom padding. */
+body[data-route="modules-users"] .app,
+body[data-route="inbox"] .app,
+body[data-route="reports"] .app,
+body[data-route="data-collection"] .app {
+  padding-bottom: 12px;
+}

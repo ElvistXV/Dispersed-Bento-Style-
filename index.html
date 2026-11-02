@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Dispersed: Carbon Accounting (Bento style)</title>
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles (order matters) -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- Header: logo, main nav (filled by app.js), user -->
+      <header class="top">
+        <div class="logo">
+          <img src="assets/logo.png" alt="Dispersed logo" /><span
+            >DISPERSED</span
+          >
+        </div>
+        <nav id="tabs" aria-label="Main"></nav>
+        <div class="user">
+          <span class="av" aria-hidden="true">RP</span><span class="n">Raees Pritchard</span>
+        </div>
+      </header>
+
+      <!-- Current page is rendered here -->
+      <main id="view"></main>
+    </div>
+
+    <!-- LCA draft report window -->
+    <div
+      class="ovl"
+      id="ovl"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="dt"
+      onclick="if (event.target === this) closeDraft();"
+    ></div>
+
+    <!-- Toast messages -->
+    <div class="toast" id="toast" role="status"></div>
+
+    <!-- Scripts (order matters) -->
+    <script src="js/state.js"></script>
+    <script src="js/helpers.js"></script>
+    <script src="js/actions.js"></script>
+    <script src="js/views/registry.js"></script>
+    <script src="js/views/overview.js"></script>
+    <script src="js/views/modules.js"></script>
+    <script src="js/views/module-scope.js"></script>
+    <script src="js/views/module-lca.js"></script>
+    <script src="js/views/module-users.js"></script>
+    <script src="js/views/data-collection.js"></script>
+    <script src="js/views/inbox.js"></script>
+    <script src="js/views/reports.js"></script>
+    <script src="js/views/draft-overlay.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

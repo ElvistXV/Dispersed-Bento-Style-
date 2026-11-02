@@ -1,0 +1,36 @@
+/* =====================================================
+   responsive.css  Tablet and phone adjustments
+   ===================================================== */
+
+@media (max-width: 820px) {
+  .g4 {
+    grid-template-columns: 1fr 1fr;
+  }
+  .g3,
+  .g2,
+  .dc {
+    grid-template-columns: 1fr;
+  }
+  .cats {
+    justify-content: flex-start;
+  }
+  .hero b {
+    font-size: 40px;
+  }
+  h1 {
+    font-size: 28px;
+  }
+  .user span.n {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .mods {
+    grid-template-columns: 1fr;
+  }
+  .mod,
+  .mods .add {
+    min-height: 0;
+  }
+}

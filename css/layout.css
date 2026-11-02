@@ -1,0 +1,129 @@
+/* =====================================================
+   layout.css  Header, navigation and grid helpers
+   ===================================================== */
+
+/* ----- Header: logo, nav pill, user ----- */
+.top {
+  display: grid;
+  grid-template-columns: minmax(155px,1fr) auto minmax(155px,1fr);
+  align-items: center;
+  gap: 8px;
+  min-height: 72px;
+}
+nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--card);
+  border-radius: 999px;
+  padding: 6px;
+  flex-wrap: nowrap;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+}
+.logo img {
+  height: 41px;
+  width: auto;
+  display: block;
+}
+nav button {
+  font: inherit;
+  font-weight: 600;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  padding: 11px 18px;
+  font-size: 15px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+nav button.on {
+  background: var(--dk);
+  color: var(--dkt);
+}
+.user {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 15px;
+  margin-left: 8px;
+  padding: 5px 16px 5px 6px;
+  border-radius: 999px;
+  background: var(--card);
+  white-space: nowrap;
+}
+.top .user .av {
+  width: 44px;
+  height: 44px;
+  background: var(--peach);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* ----- Grid helpers (g2, g3, g4) and flex rows ----- */
+.grid {
+  display: grid;
+  gap: 12px;
+}
+.g4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.g3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.g2 {
+  grid-template-columns: 1.35fr 1fr;
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sp {
+  justify-content: space-between;
+}
+
+
+/* A single, shared header alignment rule (desktop and mobile). */
+.top > nav { justify-self: center; max-width: 100%; }
+.logo, .user { min-width: 0; }
+@media (max-width: 900px) {
+  .top { grid-template-columns: auto minmax(0, 1fr) auto; }
+  nav button { padding: 9px 11px; font-size: 12px; }
+}
+@media (max-width: 700px) {
+  .top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+  .top > nav { order: 3; width: 100%; overflow-x: auto; justify-content: center; }
+}
+
+/* Animated active-tab pill; existing buttons remain keyboard accessible. */
+.top nav { position: relative; isolation: isolate; }
+.top nav .nav-indicator {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  bottom: 6px;
+  width: 0;
+  border-radius: 999px;
+  background: var(--dk);
+  z-index: -1;
+  pointer-events: none;
+  will-change: transform, width;
+}
+.top nav .nav-indicator.ready {
+  transition: transform 240ms cubic-bezier(.22,1,.36,1), width 240ms cubic-bezier(.22,1,.36,1);
+}
+.top nav button { position: relative; z-index: 1; }
+.top nav button.on { background: transparent; color: var(--dkt); }
+@media (prefers-reduced-motion: reduce) {
+  .top nav .nav-indicator.ready { transition: none; }
+}
