@@ -124,8 +124,8 @@ function setupTrendPointTooltips() {
     tooltip.hidden = false;
     points.forEach(p => p.classList.toggle("selected", p === point));
     // viewBox coordinates map to the rendered SVG (same aspect ratio).
-    const x = Number(point.dataset.x) / 420 * svg.clientWidth;
-    const y = Number(point.dataset.y) / 190 * svg.clientHeight;
+    const x = Number(point.dataset.x) / svg.viewBox.baseVal.width * svg.clientWidth;
+    const y = Number(point.dataset.y) / svg.viewBox.baseVal.height * svg.clientHeight;
     const tooltipWidth = tooltip.offsetWidth;
     const clampedX = Math.max(tooltipWidth / 2 + 8, Math.min(svg.clientWidth - tooltipWidth / 2 - 8, x));
     tooltip.style.left = `${clampedX}px`;

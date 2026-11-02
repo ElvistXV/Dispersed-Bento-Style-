@@ -823,3 +823,12 @@
 @media (prefers-reduced-motion:reduce) {
  .emission-segments > button {transition:none;}
 }
+
+/* V2-style teal area trend, within the original Bento card and palette. */
+.bento-v2-chart { overflow: visible; margin-top: 8px; }
+.bento-v2-chart .trend-marker { fill:#16afa3; stroke:#fff; stroke-width:2.8; }
+.bento-v2-chart .bento-target-dot { fill:var(--or); }
+.bento-v2-chart .trend-dot:hover .trend-marker,
+.bento-v2-chart .trend-dot:focus-visible .trend-marker { r:8; stroke-width:3; fill:#0f897f; }
+.bento-v2-chart .trend-dot:hover .bento-target-dot,
+.bento-v2-chart .trend-dot:focus-visible .bento-target-dot { fill:var(--or); }
