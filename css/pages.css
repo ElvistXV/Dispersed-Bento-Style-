@@ -832,3 +832,17 @@
 .bento-v2-chart .trend-dot:focus-visible .trend-marker { r:8; stroke-width:3; fill:#0f897f; }
 .bento-v2-chart .trend-dot:hover .bento-target-dot,
 .bento-v2-chart .trend-dot:focus-visible .bento-target-dot { fill:var(--or); }
+
+/* Scope emission sources: larger, readable rows without changing the overall card layout. */
+.page-modules .scope-source-card .tw { margin-top: 6px; }
+.page-modules .scope-source-card table { width: 100%; }
+.page-modules .scope-source-card th { padding: 12px 9px; font-size: 13px; }
+.page-modules .scope-source-card td { padding: 15.35px 9px; font-size: 15px; vertical-align: middle; }
+.page-modules .scope-source-card td b { font-size: 16px; }
+.page-modules .scope-source-card .bar { height: 11px; }
+.page-modules .scope-source-card .mute { font-size: 13px; margin-top: 5px; display: inline-block; }
+.page-modules .scope-source-card .btn { font-size: 13px; padding: 8px 15px; white-space: nowrap; }
+@media (max-width: 820px) {
+  .page-modules .scope-source-card td { padding: 15px 8px; font-size: 13px; }
+  .page-modules .scope-source-card td b { font-size: 14px; }
+}
